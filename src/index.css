@@ -1,0 +1,41 @@
+/* box resizing reset */
+
+html{
+  box-sizing: border-box;
+}
+
+*,*:before,*:after{
+  box-sizing: inherit;
+}
+
+/* basic body stylings */
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Bellefair',serif;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #fff;
+}
+
+.bellefair-regular {
+  font-family: "Bellefair", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* remove default list styles unordered and ordered list */
+ul,ol{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* for links */
+a{
+  font-family: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+a:focus{
+  text-decoration: underline;
+}
