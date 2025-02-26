@@ -1,23 +1,98 @@
-.homePage{
+/* HomePage.module.css - Merged Styles */
+
+.homePage {
+    position: relative; /* Added for absolute positioning of effects */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
     text-align: center;
-    padding:50px;
-}
-
-.homePage h1{
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.homePage h2{
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    color:#007bff;
-}
-.homePage p{
-    font-size:1.1 em;
-    color:#555;
-}
-
-.name{
-    color:red;
-}
+    padding: 18vh 2rem 2rem;
+    color: #000;
+    overflow: hidden; /* Added to contain effects */
+ }
+ 
+ h1 {
+     font-size: 1.5rem;
+     margin-bottom: 1rem;
+     font-weight: 500;
+     color: var(--tertiary-color-2);
+     line-height: 1;
+ }
+ 
+ h2 {
+     font-size: 4rem;
+     margin-bottom: 1.5rem;
+     font-weight: 700;
+     color: var(--primary-color);
+     line-height: 1;
+ }
+ 
+ p {
+     font-size: 1.2rem;
+     line-height: 1.6;
+     font-weight: 300;
+     color: var(--secondary-color-2);
+ }
+ 
+ .cursor {
+     animation: blink 1s step-end infinite;
+ }
+   
+ @keyframes blink {
+     from, to {
+         opacity: 1;
+     }
+     50% {
+         opacity: 0;
+     }
+ }
+ 
+ /* New sparkle effects */
+ .sparkle {
+     position: absolute;
+     border-radius: 50%;
+     pointer-events: none;
+     box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.4);
+     z-index: 1;
+     transform: translate(-50%, -50%);
+     animation: sparkleAnimation 0.7s forwards;
+ }
+ 
+ @keyframes sparkleAnimation {
+     0% {
+         transform: translate(-50%, -50%) scale(0.5);
+     }
+     50% {
+         transform: translate(-50%, -50%) scale(1.2);
+     }
+     100% {
+         transform: translate(-50%, -50%) scale(0.8);
+     }
+ }
+ 
+ /* Click effect styles */
+ .clickEffect {
+     position: absolute;
+     width: 5px;
+     height: 5px;
+     border-radius: 50%;
+     background: transparent;
+     box-shadow: 0 0 10px 2px var(--primary-color, rgba(0, 0, 0, 0.4));
+     z-index: 1;
+     pointer-events: none;
+     transform: translate(-50%, -50%);
+     animation: clickRipple 0.7s forwards;
+ }
+ 
+ @keyframes clickRipple {
+     0% {
+         box-shadow: 0 0 0 0px var(--primary-color, rgba(0, 0, 0, 0.8));
+         opacity: 1;
+     }
+     100% {
+         box-shadow: 0 0 0 100px var(--primary-color, rgba(0, 0, 0, 0));
+         opacity: 0;
+     }
+ }

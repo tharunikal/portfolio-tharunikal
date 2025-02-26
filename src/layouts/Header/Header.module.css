@@ -1,0 +1,33 @@
+.header{
+    position: absolute; /*position at top right */
+    top: 0;
+    right:0;
+    padding: 1rem;
+}
+
+.nav{
+    display: flex;  
+    justify-content: flex-end;   /*align to right*/
+}
+
+.navList{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding:0;
+}
+
+.navItem a {
+    text-decoration: none;
+    
+    margin-left: 2rem;
+    color: var(--tertiary-color-1);
+   
+}
+
+.navItem a:hover{
+    border-bottom: 2px solid var(--tertiary-color-1);
+    
+    
+}
+

@@ -1,3 +1,22 @@
+
+
+:root {
+  --primary-color: #f8e6d3;
+  --background-color: #121212;
+  --secondary-color-1: #282828; /* Lighter gray */
+  --secondary-color-2: #e8d5c2; /* Soft gold/beige */
+  --tertiary-color-1: #8b8075; /* Darker warm accent */
+  --tertiary-color-2: #d3d3d3; /* Very light gray */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  position: relative;
+ 
+}
+
+
 /* box resizing reset */
 
 html{
@@ -12,17 +31,25 @@ html{
 body{
   margin: 0;
   padding: 0;
-  font-family: 'Bellefair',serif;
+  font-family: 'lugrasimo',serif;
   line-height: 1.5;
-  color: #000000;
-  background-color: #fff;
+  
 }
 
 .bellefair-regular {
   font-family: "Bellefair", serif;
   font-weight: 400;
   font-style: normal;
+  -webkit-font-smoothing: antialiased; /* For WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* For Firefox on macOS */
+  text-rendering: optimizeLegibility;
 }
+.lugrasimo-regular {
+  font-family: "Lugrasimo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* remove default list styles unordered and ordered list */
 ul,ol{
   list-style: none;
