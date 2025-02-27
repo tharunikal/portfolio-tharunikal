@@ -1,12 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './HomePage.module.css';
 
+interface Particle {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  color: string;
+}
+
 function HomePage() {
   const [typedText, setTypedText] = useState('');
-  const [particles, setParticles] = useState([]);
-  const [clickEffect, setClickEffect] = useState({ active: false, x: 0, y: 0 });
-  const containerRef = useRef(null);
-  
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [clickEffect, setClickEffect] = useState<{ active: boolean; x: number; y: number }>({ active: false, x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   const name = 'Tharunika L';
   const typingSpeed = 150;
 
@@ -29,41 +38,37 @@ function HomePage() {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const createSparkle = (x, y) => {
-      const colors = ['var(--primary-color)', 'var(--secondary-color-2)', 'var(--tertiary-color-2)'];  
+    const createSparkle = (x: number, y: number): Particle => {
+      const colors = ['var(--primary-color)', 'var(--secondary-color-2)', 'var(--tertiary-color-2)'];
       return {
         id: Math.random(),
         x,
         y,
-        size: Math.random() * 6 + 2, // Keep some variation in size
+        size: Math.random() * 6 + 2,
         opacity: 1,
-        color: colors[Math.floor(Math.random() * colors.length)], // Choose a random color from theme
+        color: colors[Math.floor(Math.random() * colors.length)],
       };
     };
-    
-    
-    const handleMouseMove = (e) => {
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
-      // Add new sparkle
-      if (Math.random() > 0.7) { // Only add sparkles occasionally for performance
-        setParticles(prev => [...prev.slice(-20), createSparkle(x, y)]);
+
+      if (Math.random() > 0.7) {
+        setParticles((prev) => [...prev.slice(-20), createSparkle(x, y)]);
       }
     };
 
-    // Update sparkle opacity (fade out)
     const fadeInterval = setInterval(() => {
-      setParticles(prev => 
-        prev
-          .map(p => ({ ...p, opacity: p.opacity - 0.05 }))
-          .filter(p => p.opacity > 0)
+      setParticles((prev) =>
+        prev.map((p) => ({ ...p, opacity: p.opacity - 0.05 })).filter((p) => p.opacity > 0)
       );
     }, 50);
 
     document.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       clearInterval(fadeInterval);
@@ -71,23 +76,23 @@ function HomePage() {
   }, []);
 
   // Click effect
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     setClickEffect({ active: true, x, y });
-    
-    // Reset click effect after animation completes
+
     setTimeout(() => {
       setClickEffect({ active: false, x: 0, y: 0 });
-    }, 700); // Match animation duration
+    }, 700);
   };
 
   return (
     <div className={styles.homePage} ref={containerRef} onClick={handleClick}>
       {/* Sparkle particles */}
-      {particles.map(particle => (
+      {particles.map((particle) => (
         <div
           key={particle.id}
           className={styles.sparkle}
@@ -101,10 +106,10 @@ function HomePage() {
           }}
         />
       ))}
-      
+
       {/* Click ripple effect */}
       {clickEffect.active && (
-        <div 
+        <div
           className={styles.clickEffect}
           style={{
             left: `${clickEffect.x}px`,
@@ -112,13 +117,12 @@ function HomePage() {
           }}
         />
       )}
-      
+
       <h1>hey there, it's</h1>
       <h2 className={styles.typing}>
         {typedText}
         <span className={styles.cursor}>|</span>
       </h2>
-      <p>software developer~full stack ML</p>
     </div>
   );
 }
