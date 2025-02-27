@@ -1,0 +1,122 @@
+.quoteBanner {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    margin: 4rem auto 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--secondary-color-1, #282828), var(--primary-color, #f8e6d3));
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out 1.5s forwards;
+    z-index: 2;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .quoteContainer {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .quoteContainer::before {
+    content: '"';
+    position: absolute;
+    top: -60px;
+    left: -10px;
+    font-size: 150px;
+    color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+  }
+  
+  .quoteText {
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    /* Changed to tertiary-color-2 for better readability on gradient background */
+    color: var(--tertiary-color-2, #d3d3d3);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .quoteAuthor {
+    text-align: right;
+    font-size: 1.125rem;
+    /* Changed to secondary-color-2 for better visibility */
+    color: var(--secondary-color-2, #e8d5c2);
+    font-weight: 500;
+  }
+  
+  .decorativeLine {
+    width: 80px;
+    height: 3px;
+    /* Using tertiary-color-1 for the decorative line */
+    background-color: var(--tertiary-color-1, #8b8075);
+    margin: 1.25rem auto;
+    position: relative;
+    opacity: 0.8;
+  }
+  
+  .decorativeLine::before,
+  .decorativeLine::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--secondary-color-2, #e8d5c2);
+    top: -1.5px;
+  }
+  
+  .decorativeLine::before {
+    left: -3px;
+  }
+  
+  .decorativeLine::after {
+    right: -3px;
+  }
+  
+  /* Sparkle effect inside quote banner */
+  .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    /* Using secondary-color-2 for sparkles */
+    background-color: var(--secondary-color-2, #e8d5c2);
+    animation: twinkleQuote 1.5s infinite alternate;
+  }
+  
+  @keyframes twinkleQuote {
+    from { opacity: 0.4; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.5); }
+  }
+  
+  @media (max-width: 768px) {
+    .quoteBanner {
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .quoteText {
+      font-size: 1.25rem;
+    }
+    
+    .quoteAuthor {
+      font-size: 1rem;
+    }
+  }
