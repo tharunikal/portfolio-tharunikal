@@ -30,16 +30,18 @@ function HomePage() {
     if (!containerRef.current) return;
 
     const createSparkle = (x, y) => {
+      const colors = ['var(--primary-color)', 'var(--secondary-color-2)', 'var(--tertiary-color-2)'];  
       return {
         id: Math.random(),
         x,
         y,
-        size: Math.random() * 4 + 1,
+        size: Math.random() * 6 + 2, // Keep some variation in size
         opacity: 1,
-        color: `var(--primary-color)`, // Use your primary color variable
+        color: colors[Math.floor(Math.random() * colors.length)], // Choose a random color from theme
       };
     };
-
+    
+    
     const handleMouseMove = (e) => {
       const rect = containerRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
