@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './HomePage.module.css';
-import QuoteBanner from './QuoteBanner'; // Add this line
+
 
 interface Particle {
   id: number;
@@ -125,7 +125,7 @@ function HomePage() {
         <span className={styles.cursor}>|</span>
       </h2>
       <p className={styles.subtitle}>Software Developer • Machine Learning Engineer</p>
-      <QuoteBanner />
+      
     </div>
     
   );
