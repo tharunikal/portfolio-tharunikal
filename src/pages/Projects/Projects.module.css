@@ -1,0 +1,43 @@
+/* src/pages/Projects/ProjectsPage.module.css */
+
+.projectsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    padding: 2rem;
+    color: var(--primary-color);
+  }
+  
+  .projectsPage h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .projectList {
+    list-style: none;
+    padding: 0;
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Set a maximum width if desired */
+  }
+  
+  .projectItem {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .projectItem a {
+    color: var(--secondary-color-1); /* Or any color you prefer for links */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .projectItem a:hover {
+    text-decoration: underline;
+  }
+  
+  .projectItem p {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+  }

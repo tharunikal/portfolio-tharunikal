@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './HomePage.module.css';
-
+import Header from '../../layouts/Header/Header'; // Import Header
 
 interface Particle {
   id: number;
@@ -92,6 +92,8 @@ function HomePage() {
 
   return (
     <div className={styles.homePage} ref={containerRef} onClick={handleClick}>
+      <Header /> {/* This line renders the Header component */}
+
       {/* Sparkle particles */}
       {particles.map((particle) => (
         <div
@@ -125,9 +127,7 @@ function HomePage() {
         <span className={styles.cursor}>|</span>
       </h2>
       <p className={styles.subtitle}>Software Developer • Machine Learning Engineer</p>
-      
     </div>
-    
   );
 }
 

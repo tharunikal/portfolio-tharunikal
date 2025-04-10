@@ -1,21 +1,22 @@
-
+import React from 'react';
 import styles from './Header.module.css';
+import { Link } from 'react-router-dom'; // Import Link
 
-function Header(){
-    return(
-       <header className ={styles.header}>
-        <nav className={styles.nav}>
-            <ul className={styles.navList}>
-            <li className={styles.navItem}><a href="/">home</a></li>
-          <li className={styles.navItem}><a href="/projects">projects</a></li>
-          <li className={styles.navItem}><a href="/blogs">blogs</a></li>
-          <li className={styles.navItem}><a href="/reading-list">reading list</a></li>
-          <li className={styles.navItem}><a href="/resume"> my resume</a></li>
-          <li className={styles.navItem}><a href="/contact">contact me</a></li>
-            </ul>
-        </nav>
-       </header>
-    );
+function Header() {
+  return (
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}><Link to="/">home</Link></li>
+          <li className={styles.navItem}><Link to="/projects">projects</Link></li>
+          <li className={styles.navItem}><Link to="/blogs">blogs</Link></li>
+          <li className={styles.navItem}><Link to="/reading-list">reading list</Link></li>
+          <li className={styles.navItem}><Link to="/resume"> my resume</Link></li>
+          <li className={styles.navItem}><Link to="/contact">contact me</Link></li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
 
 export default Header;

@@ -1,35 +1,35 @@
 .header {
-    position: absolute; /*position at top right */
-    top: 0;
-    right: 0;
-    padding: 1rem;
-  }
-  
-  .nav {
-    display: flex;
-    justify-content: flex-end;   /*align to right*/
-  }
-  
-  .navList {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navItem a {
-    text-decoration: none; /* Remove default underline */
-    margin-left: 2rem;
-    color: var(--tertiary-color-1);
-    border-bottom: 2px solid transparent; /* Add a transparent bottom border */
-    transition: border-bottom-color 0.3s ease-in-out; /* Smooth transition */
-    padding-bottom: 3px; /* Add a little padding below the text */
-  }
-  
-  .navItem a:hover {
-    background-color: red; /* Change background color on hover */
-  }
-  
-  .navItem a:active {
-    border-bottom-color: var(--secondary-color-1);
-  }
+  position: absolute; /*position at top right */
+  top: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;   /*align to right*/
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem a {
+  text-decoration: none; /* Remove default underline */
+  margin-left: 2rem;
+  color: var(--tertiary-color-1);
+  border-bottom: 2px solid transparent; /* Add a transparent bottom border */
+  transition: border-bottom-color 0.3s ease-in-out; /* Smooth transition */
+  padding-bottom: 3px; /* Add a little padding below the text */
+}
+
+.navItem a:hover {
+  border-bottom-color: var(--primary-color); /* Underline on hover */
+}
+
+.navItem a:active {
+  border-bottom-color: var(--secondary-color-1);
+}
