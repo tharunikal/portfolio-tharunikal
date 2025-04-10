@@ -1,43 +1,126 @@
-/* src/pages/Projects/ProjectsPage.module.css */
-
 .projectsPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally */
-    padding: 2rem;
-    color: var(--primary-color);
-  }
-  
-  .projectsPage h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .projectList {
-    list-style: none;
-    padding: 0;
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Set a maximum width if desired */
-  }
-  
-  .projectItem {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .projectItem a {
-    color: var(--secondary-color-1); /* Or any color you prefer for links */
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .projectItem a:hover {
-    text-decoration: underline;
-  }
-  
-  .projectItem p {
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin-top: 0.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertically */
+  align-items: center;     /* center horizontally */
+  padding: 2rem;
+  min-height: 100vh;        /* make it take full screen height */
+  color: var(--primary-color);
+  text-align: center;
+}
+
+
+.projectsPage h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.projectCarousel {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  z-index: 1;
+}
+/* targets each slide wrapper from react-slick */
+.slick-slide > div {
+  padding: 0 1.5rem; /* space between items */
+  overflow: visible; /* allow zoomed item to expand outside */
+}
+
+
+.carouselItem {
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: transparent;
+  color: var(--primary-color);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(248, 230, 211, 0.2);
+  box-sizing: border-box;
+  z-index: 1;
+  transform-origin: center center; /* makes the scale zoom in evenly */
+  position: relative; /* keeps z-index effective */
+}
+
+
+.carouselItem:hover {
+  transform: scale(1.03);
+  z-index: 10; /* stay above neighbors */
+}
+
+
+
+.carouselDetails h3 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.carouselDetails h3 a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.carouselDetails h3 a:hover {
+  text-decoration: underline;
+}
+
+.carouselDescription {
+  font-size: 1rem;
+  color: var(--tertiary-color-2);
+  margin-bottom: 1rem;
+}
+
+.carouselActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.liveDemoButton,
+.githubButton {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.liveDemoButton:hover,
+.githubButton:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+/* Slick Carousel Overrides */
+.slick-dots {
+  bottom: -30px !important;
+}
+
+.slick-dots li button:before {
+  color: var(--tertiary-color-1) !important;
+  font-size: 10px !important;
+  opacity: 0.6 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--primary-color) !important;
+  opacity: 1 !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px !important;
+  color: var(--tertiary-color-2) !important;
+  opacity: 0.7 !important;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1 !important;
+}

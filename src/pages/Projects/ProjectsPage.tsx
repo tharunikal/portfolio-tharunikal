@@ -1,44 +1,88 @@
-// import React from 'react';
+// src/pages/Projects/ProjectsPage.tsx
+
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import styles from './Projects.module.css';
 
-// Define your project data
 const projects = [
   {
-    name: 'Project 1',
-    description: 'A brief explanation of Project 1.',
-    githubLink: 'https://github.com/your-username/project1',
+    name: 'Legal Ease AI',
+    description: 'Offline Legal Document Analyzer leveraging RAG',
+    githubLink: 'https://github.com/tharunikal/legal-ease.git',
   },
   {
-    name: 'Project 2',
-    description: 'A concise one-liner about Project 2.',
-    githubLink: 'https://github.com/your-username/project2',
+    name: 'Inference Optimization',
+    description: '30% reduction in latency for text and image models by deploying inference servers',
+    githubLink: 'https://github.com/tharunikal/inference-optimization.git',
   },
   {
-    name: 'Awesome Tool',
-    description: 'A tool that helps you do amazing things.',
-    githubLink: 'https://github.com/your-username/awesome-tool',
+    name: 'C-Numpy',
+    description: 'Replicated core numpy features in C',
+    githubLink: 'https://github.com/tharunikal/CNumpy.git',
   },
-  // Add more projects here
+  {
+    name: 'Web App Translators',
+    description: 'A quick translational tool.',
+    githubLink: 'https://github.com/tharunikal/web-app-trans.git',
+  },
 ];
 
 function ProjectsPage() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={styles.projectsPage}>
-      <h1>My Projects</h1>
-      <ul className={styles.projectList}>
+      <h1>some of my works</h1>
+      <Slider {...settings} className={styles.projectCarousel}>
         {projects.map((project, index) => (
-          <li key={index} className={styles.projectItem}>
+          <div key={index} className={styles.carouselItem}>
+
+        <h3>
+          <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+            {project.name}
+          </a>
+        </h3>
+
+            <p>{project.description}</p>
             <a
               href={project.githubLink}
-              target="_blank" // Open link in a new tab
-              rel="noopener noreferrer" // Security best practice for target="_blank"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.githubLink}
             >
-              {project.name}
+              view it on github
             </a>
-            <p>{project.description}</p>
-          </li>
+          </div>
         ))}
-      </ul>
+      </Slider>
     </div>
   );
 }
