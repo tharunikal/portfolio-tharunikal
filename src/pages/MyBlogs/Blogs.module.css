@@ -1,74 +1,60 @@
 .blogsPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    color: var(--primary-color);
-    min-height: 100vh;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  color: var(--primary-color);
+  min-height: 100vh;
+  /* z-index: 1; */
+position: relative;
+}
+
+.blogsPage h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
   
-  .blogsPage h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .blogList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 90%;
-    max-width: 800px;
-  }
-  
-  .blogItem {
-    border-left: 3px solid var(--primary-color);
-    padding: 1rem 1.5rem;
-    margin-bottom: 2rem;
-    background-color: transparent;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .blogItem:hover {
-    background-color: rgba(248, 230, 211, 0.05); /* faint highlight */
-  }
-  
-  .blogItem h3 {
-    margin: 0 0 0.3rem;
-  }
-  
-  .blogItem h3 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 1.4rem;
-  }
-  
-  .blogItem h3 a:hover {
-    text-decoration: underline;
-  }
-  
-  .blogMeta {
-    font-size: 0.9rem;
-    color: var(--tertiary-color-2);
-    margin: 0.2rem 0 0.8rem;
-  }
-  
-  .blogDesc {
-    font-size: 1rem;
-    color: var(--primary-color);
-    line-height: 1.5;
-  }
-  .blogLink {
-    color: var(--primary-color); /* make sure this color is visible */
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    cursor: pointer;
-  }
-  
-  .blogLink:hover {
-    color: gold;
-    text-decoration: underline;
-  }
-  
-  
+}
+
+.blogList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  max-width: 800px;
+}
+
+.blogItem {
+  border-left: 3px solid var(--primary-color);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+
+.blogItem h3 {
+  margin: 0 0 0.3rem;
+}
+
+.blogItem h3 a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.blogItem h3 a:hover {
+  text-decoration: underline;
+}
+
+.blogMeta {
+  font-size: 0.9rem;
+  color: var(--tertiary-color-2);
+  margin: 0.2rem 0 0.8rem;
+}
+.compilingIdeasHeading {
+  font-size: 1.4rem;
+  color:var(--tertiary-color-2); /* Example: Make it smaller */
+  /* Add any other styles you want here, like color, margin, etc. */
+}

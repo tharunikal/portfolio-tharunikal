@@ -51,7 +51,7 @@ const SparkleTrail: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none' }}>
+    <div ref={containerRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'auto' }}>
       {particles.map((p) => (
         <div
           key={p.id}
